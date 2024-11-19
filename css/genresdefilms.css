@@ -1,5 +1,15 @@
 a {
-    display: block;
-    margin: 0;
-    padding: 0;
+  display: block;
+  margin: 0;
+  padding: 0;
+}
+img {
+  cursor: pointer;
+}
+.card:hover {
+  transform: scale(105%);
+  box-shadow: #6d713c 0 0 10px;
+}
+.card {
+  transition: all 0.3s ease;
 }
