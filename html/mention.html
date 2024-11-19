@@ -4,18 +4,96 @@
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <meta name="description" content="Mentions légales du site" />
+    <link rel="stylesheet" href="../css/index.css" />
+
     <title>Mentions Légales</title>
   </head>
   <body class="bg-gray-100 text-gray-900">
     <!-- Header -->
-    <header class="bg-gray-800 text-white p-4">
-      <div class="container mx-auto flex justify-between items-center">
-        <h1 class="text-2xl font-bold">Mentions Légales</h1>
-        <nav>
-          <a href="/" class="text-gray-300 hover:text-white">Accueil</a>
-        </nav>
+    <nav class="bg-gray-800 text-white">
+      <div
+        class="container mx-auto flex justify-between items-center px-4 py-3"
+      >
+        <!-- Logo -->
+        <a href="#" class="text-2xl font-bold">CinéFlix</a>
+
+        <!-- Menu desktop -->
+        <ul class="hidden md:flex space-x-6">
+          <li>
+            <a href="../index.html" class="hover:text-blue-400">Accueil</a>
+          </li>
+          <li>
+            <a href="list-film.html" class="hover:text-blue-400">Films</a>
+          </li>
+          <li>
+            <a href="genresdefilms.html" class="hover:text-blue-400">Genre</a>
+          </li>
+          <li>
+            <a href="nouveautes_index.html" class="hover:text-blue-400"
+              >Nouveautés</a
+            >
+          </li>
+        </ul>
+
+        <!-- Bouton mobile -->
+        <button
+          class="md:hidden focus:outline-none"
+          onclick="document.getElementById('mobile-menu').classList.toggle('hidden')"
+        >
+          <svg
+            xmlns="http://www.w3.org/2000/svg"
+            fill="none"
+            viewBox="0 0 24 24"
+            stroke-width="1.5"
+            stroke="currentColor"
+            class="w-6 h-6"
+          >
+            <path
+              stroke-linecap="round"
+              stroke-linejoin="round"
+              d="M3.75 6.75h16.5M3.75 12h16.5m-16.5 5.25h16.5"
+            />
+          </svg>
+        </button>
       </div>
-    </header>
+
+      <!-- Menu mobile -->
+      <ul
+        id="mobile-menu"
+        class="md:hidden hidden flex flex-col bg-gray-800 text-white"
+      >
+        <li>
+          <a
+            href="../index.html"
+            class="block px-4 py-2 border-b border-gray-700 hover:bg-gray-700"
+            >Accueil</a
+          >
+        </li>
+        <li>
+          <a
+            href="list-film.html"
+            class="block px-4 py-2 border-b border-gray-700 hover:bg-gray-700"
+            >Films</a
+          >
+        </li>
+        <li>
+          <a
+            href="genresdefilms.html"
+            class="block px-4 py-2 border-b border-gray-700 hover:bg-gray-700"
+            >Genre</a
+          >
+        </li>
+
+        <li>
+          <a
+            href="nouveautes_index.html"
+            class="block px-4 py-2 border-b border-gray-700 hover:bg-gray-700"
+            >Nouveautés</a
+          >
+        </li>
+        <li></li>
+      </ul>
+    </nav>
 
     <!-- Main Content -->
     <main class="container mx-auto py-8 px-4">

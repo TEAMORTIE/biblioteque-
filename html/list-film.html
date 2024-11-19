@@ -1,284 +1,534 @@
 <!DOCTYPE html>
 <html lang="fr">
-<head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <link rel="stylesheet" href="/./css/list-film.css">
-  <title>Liste des Films</title>
-  <!-- Bootstrap CSS -->
-  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="stylesheet" href="/./css/list-film.css" />
+    <link rel="stylesheet" href="../css/index.css" />
+    <title>Liste des Films</title>
+    <!-- Bootstrap CSS -->
+    <link
+      href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css"
+      rel="stylesheet"
+    />
+  </head>
+  <body>
+    <!-- Navbar -->
+    <nav class="bg-gray-800 text-white">
+      <div
+        class="container mx-auto flex justify-between items-center px-4 py-3"
+      >
+        <!-- Logo -->
+        <a href="#" class="text-2xl font-bold">CinéFlix</a>
 
-</head>
-<body>
-<!-- Navigation -->
-<nav class="navbar navbar-expand-lg navbar-dark bg-dark">
-  <div class="container-fluid">
-    <a class="navbar-brand" href="#">Films</a>
-    <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav">
-      <span class="navbar-toggler-icon"></span>
-    </button>
-    <div class="collapse navbar-collapse" id="navbarNav">
-      <ul class="navbar-nav">
-        <li class="nav-item"><a class="nav-link active" href="#">Accueil</a></li>
-        <li class="nav-item"><a class="nav-link" href="#genres">Genres</a></li>
-        <li class="nav-item"><a class="nav-link" href="#popularity">Popularité</a></li>
-        <li class="nav-item"><a class="nav-link" href="#year">Année</a></li>
+        <!-- Menu desktop -->
+        <ul class="hidden md:flex space-x-6">
+          <li>
+            <a href="../index.html" class="hover:text-blue-400">Accueil</a>
+          </li>
+          <li>
+            <a href="list-film.html" class="hover:text-blue-400">Films</a>
+          </li>
+          <li>
+            <a href="genresdefilms.html" class="hover:text-blue-400">Genre</a>
+          </li>
+          <li>
+            <a href="nouveautes_index.html" class="hover:text-blue-400"
+              >Nouveautés</a
+            >
+          </li>
+        </ul>
+
+        <!-- Bouton mobile -->
+        <button
+          class="md:hidden focus:outline-none"
+          onclick="document.getElementById('mobile-menu').classList.toggle('hidden')"
+        >
+          <svg
+            xmlns="http://www.w3.org/2000/svg"
+            fill="none"
+            viewBox="0 0 24 24"
+            stroke-width="1.5"
+            stroke="currentColor"
+            class="w-6 h-6"
+          >
+            <path
+              stroke-linecap="round"
+              stroke-linejoin="round"
+              d="M3.75 6.75h16.5M3.75 12h16.5m-16.5 5.25h16.5"
+            />
+          </svg>
+        </button>
+      </div>
+
+      <!-- Menu mobile -->
+      <ul
+        id="mobile-menu"
+        class="md:hidden hidden flex flex-col bg-gray-800 text-white"
+      >
+        <li>
+          <a
+            href="../index.html"
+            class="block px-4 py-2 border-b border-gray-700 hover:bg-gray-700"
+            >Accueil</a
+          >
+        </li>
+        <li>
+          <a
+            href="list-film.html"
+            class="block px-4 py-2 border-b border-gray-700 hover:bg-gray-700"
+            >Films</a
+          >
+        </li>
+        <li>
+          <a
+            href="genresdefilms.html"
+            class="block px-4 py-2 border-b border-gray-700 hover:bg-gray-700"
+            >Genre</a
+          >
+        </li>
+
+        <li>
+          <a
+            href="nouveautes_index.html"
+            class="block px-4 py-2 border-b border-gray-700 hover:bg-gray-700"
+            >Nouveautés</a
+          >
+        </li>
+        <li></li>
       </ul>
-    </div>
-  </div>
-</nav>
+    </nav>
 
-<!-- Filtrage isotope.js-->
-<div class="container mt-4">
-  <div class="d-flex justify-content-center gap-3">
-    <button class="btn btn-outline-primary filter-btn" data-filter="all">Tous</button>
-    <button class="btn btn-outline-success filter-btn" data-filter="action">Action</button>
-    <button class="btn btn-outline-danger filter-btn" data-filter="horor">Horreur</button>
-    <button class="btn btn-outline-warning filter-btn" data-filter="comedy">Comédie</button>
-    <button class="btn btn-outline-warning filter-btn" data-filter="romantic">Romantique</button>
-  </div>
-</div>
-
-<!-- Liste des films -->
-<div class="container mt-5">
-  <div class="row" id="movie-list">
-    <!-- Film 1 -->
-    <div class="col-lg-3 col-md-6 col-12 mb-4 movie-card" data-category="romantic">
-      <div class="card">
-        <img src="https://via.placeholder.com/300x200" class="card-img-top" alt="Film Comédie">
-        <div class="card-body">
-          <h5 class="card-title">20th century girl</h5>
-          <p class="card-text">Genre: Comédie | Année: 2020</p>
-          <a href="#" class="btn btn-primary">Voir plus</a>
-        </div>
-      </div>
-    </div>
-    <div class="col-lg-3 col-md-6 col-12 mb-4 movie-card" data-category="action">
-      <div class="card">
-        <img src="https://via.placeholder.com/300x200" class="card-img-top" alt="Film Action">
-        <div class="card-body">
-          <h5 class="card-title">Gladiator</h5>
-          <p class="card-text">Genre: Action | Année: 2022</p>
-          <a href="#" class="btn btn-primary">Voir plus</a>
-        </div>
+    <!-- Filtrage isotope.js-->
+    <div class="container mt-4">
+      <div class="d-flex justify-content-center gap-3">
+        <button class="btn btn-outline-primary filter-btn" data-filter="all">
+          Tous
+        </button>
+        <button class="btn btn-outline-success filter-btn" data-filter="action">
+          Action
+        </button>
+        <button class="btn btn-outline-danger filter-btn" data-filter="horor">
+          Horreur
+        </button>
+        <button class="btn btn-outline-warning filter-btn" data-filter="comedy">
+          Comédie
+        </button>
+        <button
+          class="btn btn-outline-warning filter-btn"
+          data-filter="romantic"
+        >
+          Romantique
+        </button>
       </div>
     </div>
 
-    <!-- Film 2 -->
-    <div class="col-lg-3 col-md-6 col-12 mb-4 movie-card" data-category="horor">
-      <div class="card">
-        <img src="https://via.placeholder.com/300x200" class="card-img-top" alt="Film Drame">
-        <div class="card-body">
-          <h5 class="card-title">Terrifer 3</h5>
-          <p class="card-text">Genre: Drame | Année: 2021</p>
-          <a href="#" class="btn btn-primary">Voir plus</a>
+    <!-- Liste des films -->
+    <div class="container mt-5">
+      <div class="row" id="movie-list">
+        <!-- Film 1 -->
+        <div
+          class="col-lg-3 col-md-6 col-12 mb-4 movie-card"
+          data-category="romantic"
+        >
+          <div class="card">
+            <img
+              src="https://via.placeholder.com/300x200"
+              class="card-img-top"
+              alt="Film Comédie"
+            />
+            <div class="card-body">
+              <h5 class="card-title">20th century girl</h5>
+              <p class="card-text">Genre: Comédie | Année: 2020</p>
+              <a href="#" class="btn btn-primary">Voir plus</a>
+            </div>
+          </div>
+        </div>
+        <div
+          class="col-lg-3 col-md-6 col-12 mb-4 movie-card"
+          data-category="action"
+        >
+          <div class="card">
+            <img
+              src="https://via.placeholder.com/300x200"
+              class="card-img-top"
+              alt="Film Action"
+            />
+            <div class="card-body">
+              <h5 class="card-title">Gladiator</h5>
+              <p class="card-text">Genre: Action | Année: 2022</p>
+              <a href="#" class="btn btn-primary">Voir plus</a>
+            </div>
+          </div>
+        </div>
+
+        <!-- Film 2 -->
+        <div
+          class="col-lg-3 col-md-6 col-12 mb-4 movie-card"
+          data-category="horor"
+        >
+          <div class="card">
+            <img
+              src="https://via.placeholder.com/300x200"
+              class="card-img-top"
+              alt="Film Drame"
+            />
+            <div class="card-body">
+              <h5 class="card-title">Terrifer 3</h5>
+              <p class="card-text">Genre: Drame | Année: 2021</p>
+              <a href="#" class="btn btn-primary">Voir plus</a>
+            </div>
+          </div>
+        </div>
+
+        <!-- Film 3 -->
+        <div
+          class="col-lg-3 col-md-6 col-12 mb-4 movie-card"
+          data-category="comedy"
+        >
+          <div class="card">
+            <img
+              src="https://via.placeholder.com/300x200"
+              class="card-img-top"
+              alt="Film Comédie"
+            />
+            <div class="card-body">
+              <h5 class="card-title">Diner de Cons</h5>
+              <p class="card-text">Genre: Comédie | Année: 2020</p>
+              <a href="#" class="btn btn-primary">Voir plus</a>
+            </div>
+          </div>
+        </div>
+        <div
+          class="col-lg-3 col-md-6 col-12 mb-4 movie-card"
+          data-category="horor"
+        >
+          <div class="card">
+            <img
+              src="https://via.placeholder.com/300x200"
+              class="card-img-top"
+              alt="Film Drame"
+            />
+            <div class="card-body">
+              <h5 class="card-title">Chucky</h5>
+              <p class="card-text">Genre: Drame | Année: 2021</p>
+              <a href="#" class="btn btn-primary">Voir plus</a>
+            </div>
+          </div>
+        </div>
+
+        <!-- Film 4 -->
+        <div
+          class="col-lg-3 col-md-6 col-12 mb-4 movie-card"
+          data-category="action"
+        >
+          <div class="card">
+            <img
+              src="https://via.placeholder.com/300x200"
+              class="card-img-top"
+              alt="Film Action"
+            />
+            <div class="card-body">
+              <h5 class="card-title">Batman</h5>
+              <p class="card-text">Genre: Action | Année: 2023</p>
+              <a href="#" class="btn btn-primary">Voir plus</a>
+            </div>
+          </div>
+        </div>
+        <div
+          class="col-lg-3 col-md-6 col-12 mb-4 movie-card"
+          data-category="comedy"
+        >
+          <div class="card">
+            <img
+              src="https://via.placeholder.com/300x200"
+              class="card-img-top"
+              alt="Film Comédie"
+            />
+            <div class="card-body">
+              <h5 class="card-title">Trois frères</h5>
+              <p class="card-text">Genre: Comédie | Année: 2020</p>
+              <a href="#" class="btn btn-primary">Voir plus</a>
+            </div>
+          </div>
+        </div>
+        <div
+          class="col-lg-3 col-md-6 col-12 mb-4 movie-card"
+          data-category="horor"
+        >
+          <div class="card">
+            <img
+              src="https://via.placeholder.com/300x200"
+              class="card-img-top"
+              alt="Film Drame"
+            />
+            <div class="card-body">
+              <h5 class="card-title">Rec</h5>
+              <p class="card-text">Genre: Drame | Année: 2021</p>
+              <a href="#" class="btn btn-primary">Voir plus</a>
+            </div>
+          </div>
+        </div>
+        <div
+          class="col-lg-3 col-md-6 col-12 mb-4 movie-card"
+          data-category="romantic"
+        >
+          <div class="card">
+            <img
+              src="https://via.placeholder.com/300x200"
+              class="card-img-top"
+              alt="Film Comédie"
+            />
+            <div class="card-body">
+              <h5 class="card-title">Nos étoiles contraires</h5>
+              <p class="card-text">Genre: Comédie | Année: 2020</p>
+              <a href="#" class="btn btn-primary">Voir plus</a>
+            </div>
+          </div>
+        </div>
+        <div
+          class="col-lg-3 col-md-6 col-12 mb-4 movie-card"
+          data-category="comedy"
+        >
+          <div class="card">
+            <img
+              src="https://via.placeholder.com/300x200"
+              class="card-img-top"
+              alt="Film Comédie"
+            />
+            <div class="card-body">
+              <h5 class="card-title">Intouchables</h5>
+              <p class="card-text">Genre: Comédie | Année: 2020</p>
+              <a href="#" class="btn btn-primary">Voir plus</a>
+            </div>
+          </div>
+        </div>
+        <!-- Film 5 -->
+        <div
+          class="col-lg-3 col-md-6 col-12 mb-4 movie-card"
+          data-category="action"
+        >
+          <div class="card">
+            <img
+              src="https://via.placeholder.com/300x200"
+              class="card-img-top"
+              alt="Film Action"
+            />
+            <div class="card-body">
+              <h5 class="card-title">Le gangster, le flic et l'assassin</h5>
+              <p class="card-text">Genre: Action | Année: 2022</p>
+              <a href="#" class="btn btn-primary">Voir plus</a>
+            </div>
+          </div>
+        </div>
+        <div
+          class="col-lg-3 col-md-6 col-12 mb-4 movie-card"
+          data-category="romantic"
+        >
+          <div class="card">
+            <img
+              src="https://via.placeholder.com/300x200"
+              class="card-img-top"
+              alt="Film Comédie"
+            />
+            <div class="card-body">
+              <h5 class="card-title">La La Land</h5>
+              <p class="card-text">Genre: Comédie | Année: 2020</p>
+              <a href="#" class="btn btn-primary">Voir plus</a>
+            </div>
+          </div>
+        </div>
+        <div
+          class="col-lg-3 col-md-6 col-12 mb-4 movie-card"
+          data-category="horor"
+        >
+          <div class="card">
+            <img
+              src="https://via.placeholder.com/300x200"
+              class="card-img-top"
+              alt="Film Drame"
+            />
+            <div class="card-body">
+              <h5 class="card-title">Saw</h5>
+              <p class="card-text">Genre: Drame | Année: 2021</p>
+              <a href="#" class="btn btn-primary">Voir plus</a>
+            </div>
+          </div>
+        </div>
+        <div
+          class="col-lg-3 col-md-6 col-12 mb-4 movie-card"
+          data-category="comedy"
+        >
+          <div class="card">
+            <img
+              src="https://via.placeholder.com/300x200"
+              class="card-img-top"
+              alt="Film Comédie"
+            />
+            <div class="card-body">
+              <h5 class="card-title">Visiteurs</h5>
+              <p class="card-text">Genre: Comédie | Année: 2020</p>
+              <a href="#" class="btn btn-primary">Voir plus</a>
+            </div>
+          </div>
+        </div>
+        <div
+          class="col-lg-3 col-md-6 col-12 mb-4 movie-card"
+          data-category="action"
+        >
+          <div class="card">
+            <img
+              src="https://via.placeholder.com/300x200"
+              class="card-img-top"
+              alt="Film Action"
+            />
+            <div class="card-body">
+              <h5 class="card-title">Rebel Bridge</h5>
+              <p class="card-text">Genre: Action | Année: 2022</p>
+              <a href="#" class="btn btn-primary">Voir plus</a>
+            </div>
+          </div>
+        </div>
+        <div
+          class="col-lg-3 col-md-6 col-12 mb-4 movie-card"
+          data-category="romantic"
+        >
+          <div class="card">
+            <img
+              src="https://via.placeholder.com/300x200"
+              class="card-img-top"
+              alt="Film Comédie"
+            />
+            <div class="card-body">
+              <h5 class="card-title">Titanic</h5>
+              <p class="card-text">Genre: Comédie | Année: 2020</p>
+              <a href="#" class="btn btn-primary">Voir plus</a>
+            </div>
+          </div>
+        </div>
+        <div
+          class="col-lg-3 col-md-6 col-12 mb-4 movie-card"
+          data-category="action"
+        >
+          <div class="card">
+            <img
+              src="https://via.placeholder.com/300x200"
+              class="card-img-top"
+              alt="Film Action"
+            />
+            <div class="card-body">
+              <h5 class="card-title">Bad Boy</h5>
+              <p class="card-text">Genre: Action | Année: 2022</p>
+              <a href="#" class="btn btn-primary">Voir plus</a>
+            </div>
+          </div>
+        </div>
+        <div
+          class="col-lg-3 col-md-6 col-12 mb-4 movie-card"
+          data-category="romantic"
+        >
+          <div class="card">
+            <img
+              src="https://via.placeholder.com/300x200"
+              class="card-img-top"
+              alt="Film Comédie"
+            />
+            <div class="card-body">
+              <h5 class="card-title">L'idée d'être avec toi</h5>
+              <p class="card-text">Genre: Comédie | Année: 2020</p>
+              <a href="#" class="btn btn-primary">Voir plus</a>
+            </div>
+          </div>
+        </div>
+        <div
+          class="col-lg-3 col-md-6 col-12 mb-4 movie-card"
+          data-category="comedy"
+        >
+          <div class="card">
+            <img
+              src="https://via.placeholder.com/300x200"
+              class="card-img-top"
+              alt="Film Comédie"
+            />
+            <div class="card-body">
+              <h5 class="card-title">Lupin</h5>
+              <p class="card-text">Genre: Comédie | Année: 2020</p>
+              <a href="#" class="btn btn-primary">Voir plus</a>
+            </div>
+          </div>
+        </div>
+        <div
+          class="col-lg-3 col-md-6 col-12 mb-4 movie-card"
+          data-category="horor"
+        >
+          <div class="card">
+            <img
+              src="https://via.placeholder.com/300x200"
+              class="card-img-top"
+              alt="Film Drame"
+            />
+            <div class="card-body">
+              <h5 class="card-title">Baba Yaga</h5>
+              <p class="card-text">Genre: Drame | Année: 2021</p>
+              <a href="#" class="btn btn-primary">Voir plus</a>
+            </div>
+          </div>
         </div>
       </div>
     </div>
 
-    <!-- Film 3 -->
-    <div class="col-lg-3 col-md-6 col-12 mb-4 movie-card" data-category="comedy">
-      <div class="card">
-        <img src="https://via.placeholder.com/300x200" class="card-img-top" alt="Film Comédie">
-        <div class="card-body">
-          <h5 class="card-title">Diner de Cons</h5>
-          <p class="card-text">Genre: Comédie | Année: 2020</p>
-          <a href="#" class="btn btn-primary">Voir plus</a>
-        </div>
-      </div>
-    </div>
-    <div class="col-lg-3 col-md-6 col-12 mb-4 movie-card" data-category="horor">
-      <div class="card">
-        <img src="https://via.placeholder.com/300x200" class="card-img-top" alt="Film Drame">
-        <div class="card-body">
-          <h5 class="card-title">Chucky</h5>
-          <p class="card-text">Genre: Drame | Année: 2021</p>
-          <a href="#" class="btn btn-primary">Voir plus</a>
-        </div>
-      </div>
-    </div>
+    <!-- Footer -->
+    <footer class="bg-gray-800 text-white py-6">
+      <div class="container mx-auto px-4">
+        <div class="flex flex-col sm:flex-row justify-between items-center">
+          <!-- Logo ou Texte -->
+          <div class="text-center sm:text-left mb-4 sm:mb-0">
+            <p class="text-lg font-semibold">Cinéflix</p>
+            <p class="text-sm">© 2024 Cinéflix - Tous droits réservés</p>
+          </div>
 
-    <!-- Film 4 -->
-    <div class="col-lg-3 col-md-6 col-12 mb-4 movie-card" data-category="action">
-      <div class="card">
-        <img src="https://via.placeholder.com/300x200" class="card-img-top" alt="Film Action">
-        <div class="card-body">
-          <h5 class="card-title">Batman</h5>
-          <p class="card-text">Genre: Action | Année: 2023</p>
-          <a href="#" class="btn btn-primary">Voir plus</a>
+          <!-- Liens -->
+          <div class="flex flex-wrap justify-center sm:justify-end space-x-4">
+            <a href="../index.html" class="hover:text-blue-400">Accueil</a>
+            <a href="list-film.html" class="hover:text-blue-400">Films</a>
+            <a href="nouveautes_index.html" class="hover:text-blue-400"
+              >Nouveautés</a
+            >
+            <a href="mention.html" class="hover:text-blue-400"
+              >Mentions Légales</a
+            >
+          </div>
         </div>
       </div>
-    </div>
-    <div class="col-lg-3 col-md-6 col-12 mb-4 movie-card" data-category="comedy">
-      <div class="card">
-        <img src="https://via.placeholder.com/300x200" class="card-img-top" alt="Film Comédie">
-        <div class="card-body">
-          <h5 class="card-title">Trois frères</h5>
-          <p class="card-text">Genre: Comédie | Année: 2020</p>
-          <a href="#" class="btn btn-primary">Voir plus</a>
-        </div>
-      </div>
-    </div>
-    <div class="col-lg-3 col-md-6 col-12 mb-4 movie-card" data-category="horor">
-      <div class="card">
-        <img src="https://via.placeholder.com/300x200" class="card-img-top" alt="Film Drame">
-        <div class="card-body">
-          <h5 class="card-title">Rec</h5>
-          <p class="card-text">Genre: Drame | Année: 2021</p>
-          <a href="#" class="btn btn-primary">Voir plus</a>
-        </div>
-      </div>
-    </div>
-    <div class="col-lg-3 col-md-6 col-12 mb-4 movie-card" data-category="romantic">
-      <div class="card">
-        <img src="https://via.placeholder.com/300x200" class="card-img-top" alt="Film Comédie">
-        <div class="card-body">
-          <h5 class="card-title">Nos étoiles contraires</h5>
-          <p class="card-text">Genre: Comédie | Année: 2020</p>
-          <a href="#" class="btn btn-primary">Voir plus</a>
-        </div>
-      </div>
-    </div>
-    <div class="col-lg-3 col-md-6 col-12 mb-4 movie-card" data-category="comedy">
-      <div class="card">
-        <img src="https://via.placeholder.com/300x200" class="card-img-top" alt="Film Comédie">
-        <div class="card-body">
-          <h5 class="card-title">Intouchables</h5>
-          <p class="card-text">Genre: Comédie | Année: 2020</p>
-          <a href="#" class="btn btn-primary">Voir plus</a>
-        </div>
-      </div>
-    </div>
-    <!-- Film 5 -->
-    <div class="col-lg-3 col-md-6 col-12 mb-4 movie-card" data-category="action">
-      <div class="card">
-        <img src="https://via.placeholder.com/300x200" class="card-img-top" alt="Film Action">
-        <div class="card-body">
-          <h5 class="card-title">Le gangster, le flic et l'assassin</h5>
-          <p class="card-text">Genre: Action | Année: 2022</p>
-          <a href="#" class="btn btn-primary">Voir plus</a>
-        </div>
-      </div>
-    </div>
-    <div class="col-lg-3 col-md-6 col-12 mb-4 movie-card" data-category="romantic">
-      <div class="card">
-        <img src="https://via.placeholder.com/300x200" class="card-img-top" alt="Film Comédie">
-        <div class="card-body">
-          <h5 class="card-title">La La Land</h5>
-          <p class="card-text">Genre: Comédie | Année: 2020</p>
-          <a href="#" class="btn btn-primary">Voir plus</a>
-        </div>
-      </div>
-    </div>
-    <div class="col-lg-3 col-md-6 col-12 mb-4 movie-card" data-category="horor">
-      <div class="card">
-        <img src="https://via.placeholder.com/300x200" class="card-img-top" alt="Film Drame">
-        <div class="card-body">
-          <h5 class="card-title">Saw</h5>
-          <p class="card-text">Genre: Drame | Année: 2021</p>
-          <a href="#" class="btn btn-primary">Voir plus</a>
-        </div>
-      </div>
-    </div>
-    <div class="col-lg-3 col-md-6 col-12 mb-4 movie-card" data-category="comedy">
-      <div class="card">
-        <img src="https://via.placeholder.com/300x200" class="card-img-top" alt="Film Comédie">
-        <div class="card-body">
-          <h5 class="card-title">Visiteurs</h5>
-          <p class="card-text">Genre: Comédie | Année: 2020</p>
-          <a href="#" class="btn btn-primary">Voir plus</a>
-        </div>
-      </div>
-    </div>
-    <div class="col-lg-3 col-md-6 col-12 mb-4 movie-card" data-category="action">
-      <div class="card">
-        <img src="https://via.placeholder.com/300x200" class="card-img-top" alt="Film Action">
-        <div class="card-body">
-          <h5 class="card-title">Rebel Bridge</h5>
-          <p class="card-text">Genre: Action | Année: 2022</p>
-          <a href="#" class="btn btn-primary">Voir plus</a>
-        </div>
-      </div>
-    </div>
-    <div class="col-lg-3 col-md-6 col-12 mb-4 movie-card" data-category="romantic">
-      <div class="card">
-        <img src="https://via.placeholder.com/300x200" class="card-img-top" alt="Film Comédie">
-        <div class="card-body">
-          <h5 class="card-title">Titanic</h5>
-          <p class="card-text">Genre: Comédie | Année: 2020</p>
-          <a href="#" class="btn btn-primary">Voir plus</a>
-        </div>
-      </div>
-    </div>
-    <div class="col-lg-3 col-md-6 col-12 mb-4 movie-card" data-category="action">
-      <div class="card">
-        <img src="https://via.placeholder.com/300x200" class="card-img-top" alt="Film Action">
-        <div class="card-body">
-          <h5 class="card-title">Bad Boy</h5>
-          <p class="card-text">Genre: Action | Année: 2022</p>
-          <a href="#" class="btn btn-primary">Voir plus</a>
-        </div>
-      </div>
-    </div>
-    <div class="col-lg-3 col-md-6 col-12 mb-4 movie-card" data-category="romantic">
-      <div class="card">
-        <img src="https://via.placeholder.com/300x200" class="card-img-top" alt="Film Comédie">
-        <div class="card-body">
-          <h5 class="card-title">L'idée d'être avec toi</h5>
-          <p class="card-text">Genre: Comédie | Année: 2020</p>
-          <a href="#" class="btn btn-primary">Voir plus</a>
-        </div>
-      </div>
-    </div>
-    <div class="col-lg-3 col-md-6 col-12 mb-4 movie-card" data-category="comedy">
-      <div class="card">
-        <img src="https://via.placeholder.com/300x200" class="card-img-top" alt="Film Comédie">
-        <div class="card-body">
-          <h5 class="card-title">Lupin</h5>
-          <p class="card-text">Genre: Comédie | Année: 2020</p>
-          <a href="#" class="btn btn-primary">Voir plus</a>
-        </div>
-      </div>
-    </div>
-    <div class="col-lg-3 col-md-6 col-12 mb-4 movie-card" data-category="horor">
-      <div class="card">
-        <img src="https://via.placeholder.com/300x200" class="card-img-top" alt="Film Drame">
-        <div class="card-body">
-          <h5 class="card-title">Baba Yaga</h5>
-          <p class="card-text">Genre: Drame | Année: 2021</p>
-          <a href="#" class="btn btn-primary">Voir plus</a>
-        </div>
-      </div>
-    </div>
-  </div>
-</div>
+    </footer>
 
-<!-- Footer -->
-<footer class="bg-dark text-center text-white py-3 mt-5">
-  &copy; 2024 Liste des Films - Tous droits réservés
-</footer>
+    <!-- Bootstrap JS -->
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"></script>
 
-<!-- Bootstrap JS -->
-<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"></script>
+    <!-- JavaScript pour filtrage isotope.js -->
+    <script>
+      const filterButtons = document.querySelectorAll(".filter-btn");
+      const movieCards = document.querySelectorAll(".movie-card");
 
-<!-- JavaScript pour filtrage isotope.js -->
-<script>
-  const filterButtons = document.querySelectorAll('.filter-btn');
-  const movieCards = document.querySelectorAll('.movie-card');
+      filterButtons.forEach((button) => {
+        button.addEventListener("click", () => {
+          const filter = button.getAttribute("data-filter");
 
-  filterButtons.forEach(button => {
-    button.addEventListener('click', () => {
-      const filter = button.getAttribute('data-filter');
-
-      movieCards.forEach(card => {
-        if (filter === 'all' || card.getAttribute('data-category') === filter) {
-          card.style.display = 'block';
-        } else {
-          card.style.display = 'none';
-        }
+          movieCards.forEach((card) => {
+            if (
+              filter === "all" ||
+              card.getAttribute("data-category") === filter
+            ) {
+              card.style.display = "block";
+            } else {
+              card.style.display = "none";
+            }
+          });
+        });
       });
-    });
-  });
-</script>
-</body>
+    </script>
+
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script src="https://unpkg.com/alpinejs" defer></script>
+  </body>
 </html>
