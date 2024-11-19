@@ -21,3 +21,6 @@ nav {
   z-index: 1;
   top: 0;
 }
+button {
+  margin-top: 1em !important;
+}

@@ -1,0 +1,3 @@
+User-agent: *
+Allow: /
+Sitemap: https://teamortie.github.io/biblioteque-/sitemap.xml
