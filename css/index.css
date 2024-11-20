@@ -8,6 +8,8 @@ h3 {
   font-size: 3em !important;
 }
 body {
+  overflow-x: hidden;
+  overflow-x: hidden;
   overflow-wrap: anywhere;
   background-color: black !important;
 }
@@ -24,4 +26,76 @@ nav {
 }
 button {
   margin-top: 1em !important;
+}
+form {
+  background: #fff;
+  padding: 20px;
+  border-radius: 8px;
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+  width: 50%;
+}
+label {
+  display: block;
+  margin: 10px 0 5px;
+  font-weight: bold;
+}
+input,
+textarea,
+select {
+  width: 100%;
+  padding: 8px;
+  margin-bottom: 15px;
+  border: 1px solid #ddd;
+  border-radius: 4px;
+}
+form button {
+  background-color: #e50914;
+  color: #fff;
+  border: none;
+  padding: 10px 15px;
+  cursor: pointer;
+  width: 100%;
+  font-size: 16px;
+  border-radius: 4px;
+}
+form button:hover {
+  background-color: #b20710;
+}
+.contact {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin-top: 2em;
+}
+.contact2 img {
+  width: 100%;
+  transition: all 0.5s ease;
+}
+.contact2 img:hover {
+  transform: rotate(360deg);
+}
+.contact2 {
+  margin-top: 3em;
+  width: 20%;
+  margin-left: 40%;
+  display: flex;
+  justify-content: center;
+  animation: rotation 10s infinite linear;
+}
+.contact2 a {
+  margin-left: 1em;
+  margin-right: 1em;
+  width: 20%;
+}
+footer {
+  margin-top: 2em;
+}
+
+@keyframes rotation {
+  0% {
+    transform: rotate(0);
+  }
+  100% {
+    transform: rotate(360deg);
+  }
 }
