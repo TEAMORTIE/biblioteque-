@@ -1,8 +1,19 @@
+img.card-img-top {
+  height: 20rem;
+}
+
+.card:hover {
+  background-color: gray;
+  color: white;
+}
 .movie-card {
-    transition: transform 0.3s ease, box-shadow 0.3s ease;
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
 }
 
 .movie-card:hover {
-    transform: translateY(-10px);
-    box-shadow: 0 8px 15px rgba(0, 0, 0, 0.2);
+  transform: translateY(-10px);
+  box-shadow: 0 8px 15px rgba(0, 0, 0, 0.2);
+}
+img {
+  object-fit: cover;
 }
