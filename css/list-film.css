@@ -17,3 +17,6 @@ img.card-img-top {
 img {
   object-fit: cover;
 }
+body {
+  overflow-wrap: anywhere;
+}

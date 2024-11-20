@@ -8,6 +8,7 @@ h3 {
   font-size: 3em !important;
 }
 body {
+  overflow-wrap: anywhere;
   background-color: black !important;
 }
 footer {
